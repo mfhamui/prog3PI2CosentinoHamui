@@ -81,12 +81,12 @@ class register extends Component {
 
         <Text>{this.state.error}</Text>
         <Pressable style={style.boton} onPress={() => this.onSubmit(this.state.email, this.state.password, this.state.userName)}>
-        <Text style={style.texto}> entra! </Text> 
+        <Text style={style.texto}> Registrarse </Text> 
         </Pressable> 
 
 
         <Pressable style={style.botonAzul}  onPress={ ()=> this.props.navigation.navigate('login')}>
-            <Text>Ir al Login </Text>
+            <Text> Ya tengo cuenta </Text>
         </Pressable>
         
    

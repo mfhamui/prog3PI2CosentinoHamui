@@ -57,11 +57,11 @@ class login extends Component {
                 <Text>{this.state.error}</Text>
 
                 <Pressable style={styles.boton} onPress={() => this.onSubmit(this.state.email, this.state.password)}>
-                    <Text style={styles.texto}> ingresá </Text>
+                    <Text style={styles.texto}> Iniciar sesión </Text>
                 </Pressable>
 
                 <Pressable style={styles.botonB} onPress={() => this.props.navigation.navigate('register')}>
-                    <Text style={styles.texto}>Ir a register </Text>
+                    <Text style={styles.texto}> No tengo cuenta </Text>
                 </Pressable>
 
 
