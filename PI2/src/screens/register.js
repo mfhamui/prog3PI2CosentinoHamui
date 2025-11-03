@@ -18,7 +18,7 @@ class register extends Component {
   
   onSubmit(email, password, usuario) {
     console.log(this.state);
-        if (this.userName.length< 1){
+        if (this.state.userName.length< 1){
            this.setState({ error: "ingresar un nombre de usuario es OBLIGATORIO" })
             return
         }
