@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, Pressable, TextInput } from "react-native";
 
 
-class comentar extends Component {
+class Comentar extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default comentar;
+export default Comentar;

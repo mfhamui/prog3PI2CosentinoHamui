@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 import { db, auth } from "../firebase/config"
 
 
-class nuevoPost extends Component {
+class NuevoPost extends Component {
     constructor(props) {
        super(props);
        this.state = {
@@ -21,7 +21,7 @@ class nuevoPost extends Component {
     })
     .then((response) => {
      console.log(response);
-     this.props.navigation.navigate('home')
+     this.props.navigation.navigate('Home')
      
     })
     .catch(error => console.log(error));
@@ -51,9 +51,7 @@ class nuevoPost extends Component {
            </Pressable> 
    
    
-           <Pressable style={style.botonAzul}  onPress={ ()=> this.props.navigation.navigate('login')}>
-               <Text>Ir al Login </Text>
-           </Pressable>
+    
            
       
            
@@ -114,4 +112,4 @@ class nuevoPost extends Component {
    
    })
 
-export default nuevoPost;
+export default NuevoPost;

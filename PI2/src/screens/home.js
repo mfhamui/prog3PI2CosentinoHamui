@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 
 import { db } from "../firebase/config";
-import { Post } from "../components/post";
+import  Post  from "../components/Post";
 
 
 class Home extends Component {
@@ -43,6 +43,7 @@ class Home extends Component {
                 email={item.data.email}
                 mensaje={item.data.mensaje}
                 createdAt={item.data.createdAt}
+                navigation={this.props.navigation}
               />
 
             )} />

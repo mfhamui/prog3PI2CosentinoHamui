@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Pressable, TextInput } from "react-native";
 import { auth } from "../firebase/config";
 
 
-class login extends Component {
+class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,7 +25,7 @@ class login extends Component {
         auth.signInWithEmailAndPassword(email, password)
             .then((response) => {
                 console.log(response);
-                this.props.navigation.navigate('menu')
+                this.props.navigation.navigate('Menu')
             })
             .catch(error => {
                 this.setState({ error: "Credenciales incorrectas" });
@@ -60,7 +60,7 @@ class login extends Component {
                     <Text style={styles.texto}> Iniciar sesión </Text>
                 </Pressable>
 
-                <Pressable style={styles.botonB} onPress={() => this.props.navigation.navigate('register')}>
+                <Pressable style={styles.botonB} onPress={() => this.props.navigation.navigate('Register')}>
                     <Text style={styles.texto}> No tengo cuenta </Text>
                 </Pressable>
 
@@ -123,4 +123,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default login;
+export default Login;

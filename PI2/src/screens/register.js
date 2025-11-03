@@ -5,7 +5,7 @@ import { auth , db } from "../firebase/config";
 
 
 
-class register extends Component {
+class Register extends Component {
     constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +43,7 @@ class register extends Component {
             .then()
             .catch( e => console.log(e))
 
-      this.props.navigation.navigate('login')
+      this.props.navigation.navigate('Login')
       })
         
     .catch( error => {
@@ -85,7 +85,7 @@ class register extends Component {
         </Pressable> 
 
 
-        <Pressable style={style.botonAzul}  onPress={ ()=> this.props.navigation.navigate('login')}>
+        <Pressable style={style.botonAzul}  onPress={ ()=> this.props.navigation.navigate('Login')}>
             <Text> Ya tengo cuenta </Text>
         </Pressable>
         
@@ -149,4 +149,4 @@ const style= StyleSheet.create({
 })
 
 
-export default register;
+export default Register;
