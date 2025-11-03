@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Pressable, TextInput } from "react-native";
-import { auth } from "../Firebase/config";
+import { auth } from "../firebase/config";
 
 
 class login extends Component {
@@ -60,7 +60,7 @@ class login extends Component {
                     <Text style={styles.texto}> ingresá </Text>
                 </Pressable>
 
-                <Pressable style={styles.botonB} onPress={() => this.props.navigation.navigate('Register')}>
+                <Pressable style={styles.botonB} onPress={() => this.props.navigation.navigate('register')}>
                     <Text style={styles.texto}>Ir a register </Text>
                 </Pressable>
 
