@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import { View, Text, StyleSheet } from "react-native";
 
-class Post extends Component {
+class post extends Component {
     constructor(props) {
     super(props);
     }
@@ -13,7 +13,10 @@ class Post extends Component {
     <View style={styles.container}>
       <Text style={styles.email}>{this.props.email}</Text>
       <Text style={styles.mensaje}>{this.props.mensaje}</Text>
-     
+      <Pressable style={style.botonAzul}  onPress={ ()=> this.props.navigation.navigate('comentario')}>
+            <Text> Comentar </Text>
+        </Pressable>
+        
     </View>
   );}
 };
@@ -43,4 +46,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Post;
+export default post;
