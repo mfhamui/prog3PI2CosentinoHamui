@@ -14,7 +14,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    db.collection('posts').onSnapshot(docs => {
+    db.collection('posts').orderBy('createdAt', 'desc').onSnapshot(docs => {
       let posteos = [];
       docs.forEach(doc => {
         posteos.push({
@@ -30,11 +30,11 @@ class Home extends Component {
 
   render() {
     return (
-      <View style={StyleSheet.container}>
+      <View style={style.container}>
         <Text style={style.titulo}>HOME</Text>
 
         <Text>Bienvenido!</Text>
-        <View style={StyleSheet.FlatList}>
+        
           <FlatList
             data={this.state.posts}
             keyExtractor={item => item.id.toString()}
@@ -47,7 +47,7 @@ class Home extends Component {
               />
 
             )} />
-        </View>
+        
 
       </View>
 
@@ -57,10 +57,7 @@ class Home extends Component {
 
 
 const style = StyleSheet.create({
-  FlatList: {
-    flex: 1,
-    width: "100%"
-  },
+
   container: {
     flex: 1,
     paddingHorizontal: 10,
