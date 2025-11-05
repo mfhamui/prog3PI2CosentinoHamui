@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 
-import { db } from "../firebase/config";
+import { db } from "../Firebase/Config";
 import  Post  from "../components/Post";
 
 
