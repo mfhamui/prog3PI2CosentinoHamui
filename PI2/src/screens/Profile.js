@@ -56,8 +56,10 @@ class Profile extends Component {
         
             <View style= {style.container}>
                   <Text style={style.titulo}>Profile</Text>
-                  <Text> Bienvenid@ {this.state.usuario}</Text>
-                    <Text> email:  {this.state.email} </Text>      
+                  <Text> Hola! {this.state.usuario}</Text>
+                    <Text> email:  {this.state.email} </Text>    
+
+                    <Text style={style.subtitulo}>Mis posteos:</Text>  
 
                        <FlatList
                         data= {this.state.posteos}
@@ -77,30 +79,38 @@ class Profile extends Component {
     )}
 }
 const style= StyleSheet.create({
-    container: {
-    flex: 1, 
-    justifyContent: "center", 
-    alignItems: "center", 
+   container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     paddingHorizontal: 10,
-    marginTop:20,
-    }, 
-
-      titulo: {
+    marginTop: 20,
+  },
+  titulo: {
     fontSize: 26,
     fontWeight: "bold",
     marginBottom: 10,
   },
-
-
-    
+  subtitulo: {
+    marginTop: 20,
+    fontWeight: "bold",
+  },
+  post: {
+    marginVertical: 5,
+    padding: 8,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+  },
+ 
   botonAmarillo: {
     backgroundColor: "#f0de3dff",
     borderRadius: 4,
     alignItems: "center",
-    paddingHorizontal:10,
-    paddingVertical:6, 
-    marginTop:10,
-  }
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    marginTop: 10,
+  },
 })
 
 
