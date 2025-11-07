@@ -1,22 +1,70 @@
 import  React, {Component}  from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
-import { auth } from "../Firebase/Config"
+import { auth, db } from "../Firebase/Config"
 
 class Profile extends Component {
     constructor(props) {
-    super(props);}
+    super(props);
+    this.state = {
+      usuario: "",
+      email: "",
+      posteos: [],
+    };
+  }
+
+  componentDidMount() {
+    
+    db.collection("users")
+      .where("email", "==", auth.currentUser.email)
+      .onSnapshot(docs => {
+        docs.forEach(doc => {
+          this.setState({
+            usuario: doc.data().userName,
+            email: doc.data().email,
+          });
+        });
+      });
+
+ 
+    db.collection("posts")
+      .where("email", "==", auth.currentUser.email)
+      .onSnapshot(docs => {
+        let posts = [];
+        docs.forEach(doc => {
+          posts.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
+        this.setState({
+          posteos: posts,
+        });
+      });
+  }
 
     logout(){
     auth.signOut()
+      .then(() => {
+        this.props.navigation.navigate("Login"); 
+      })
+      .catch( e => console.log(e));
     }
 
     render(){
     return(
         
-            <View style= {StyleSheet.container}>
+            <View style= {style.container}>
                   <Text style={style.titulo}>Profile</Text>
+                  <Text> Bienvenid@ {this.state.usuario}</Text>
+                    <Text> email:  {this.state.email} </Text>      
+
+                       <FlatList
+                        data= {this.state.posteos}
+                        keyExtractor={item=> item.id.toString()}
+                        renderItem={({item})=> <Text>{item.data.mensaje}</Text>}
                                     
+                />   
                      <Pressable style={style.botonAmarillo} onPress={ ()=> this.logout()}>
                              <Text>LogOut </Text>
                     </Pressable>
