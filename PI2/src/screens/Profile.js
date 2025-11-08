@@ -56,18 +56,18 @@ class Profile extends Component {
         
             <View style= {style.container}>
                   <Text style={style.titulo}>Profile</Text>
-                  <Text> Hola! {this.state.usuario}</Text>
-                    <Text> email:  {this.state.email} </Text>    
+                  <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
+                    <Text  style={style.email}> email:  {this.state.email} </Text>    
 
                     <Text style={style.subtitulo}>Mis posteos:</Text>  
 
                        <FlatList
                         data= {this.state.posteos}
                         keyExtractor={item=> item.id.toString()}
-                        renderItem={({item})=> <Text>{item.data.mensaje}</Text>}
+                        renderItem={({item})=> <Text style={style.post}>{item.data.mensaje}</Text>}
                                     
                 />   
-                     <Pressable style={style.botonAmarillo} onPress={ ()=> this.logout()}>
+                     <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
                              <Text>LogOut </Text>
                     </Pressable>
                 
@@ -81,35 +81,53 @@ class Profile extends Component {
 const style= StyleSheet.create({
    container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 10,
-    marginTop: 20,
+    paddingHorizontal: 20,
+    paddingTop: 30,
+    backgroundColor: "#ffffff",
+  },
+  usuario: {
+    fontSize: 20,
+    marginBottom: 2,
   },
   titulo: {
     fontSize: 26,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 2,
+  },
+  email: {
+    fontSize: 20,
+    color: "#555555",
+    marginBottom: 18,
   },
   subtitulo: {
-    marginTop: 20,
+    fontSize: 22,
     fontWeight: "bold",
+    marginBottom: 14,
   },
   post: {
-    marginVertical: 5,
-    padding: 8,
+    marginVertical: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 5,
+    borderColor: "#999999",
+    borderRadius: 20,
+    backgroundColor: "#ffffff",
   },
- 
-  botonAmarillo: {
-    backgroundColor: "#f0de3dff",
-    borderRadius: 4,
+  botonLogout: {
+    backgroundColor: "#F8C7C7",
+    borderRadius: 18,
     alignItems: "center",
     paddingHorizontal: 10,
-    paddingVertical: 6,
-    marginTop: 10,
+    paddingVertical: 10,
+    marginTop: 25,
+    marginBottom: 15,
+    alignSelf: "center",
+    width: "80%",
+  },
+  textoBotonCerrar: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#000000",
   },
 })
 
