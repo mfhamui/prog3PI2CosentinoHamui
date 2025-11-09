@@ -90,7 +90,7 @@ class NuevoPost extends Component {
     backgroundColor: "#fff",
   },
   boton: {
-    backgroundColor: "#A7D2F2",
+    backgroundColor: "#F8C7C7",
     borderRadius: 10,
     alignItems: "center",
     paddingHorizontal: 30,

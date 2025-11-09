@@ -58,22 +58,30 @@ class Profile extends Component {
     return (
 
       <View style={style.container}>
-        <Text style={style.titulo}>Profile</Text>
+        <Text style={style.titulo}>PROFILE</Text>
         <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
         <Text style={style.email}> email:  {this.state.email} </Text>
 
         <Text style={style.subtitulo}>Mis posteos:</Text>
 
-        <FlatList
-          data={this.state.posteos}
-          keyExtractor={item => item.id.toString()}
-          renderItem={({ item }) => <Text style={style.post}>{item.data.mensaje}</Text>}
+                       <FlatList
+                        data= {this.state.posteos}
+                        keyExtractor={item=> item.id.toString()}
+                        renderItem={({item})=> 
+                        <View style={style.post}> 
+                        <Text >{item.data.mensaje}</Text>
 
-        />
-        <Pressable style={style.botonLogout} onPress={() => this.logout()}>
-          <Text>LogOut </Text>
-        </Pressable>
-
+                         <Pressable onPress={() => this.eliminar(item.id)}>
+                          <Text>Eliminar</Text>
+                         </Pressable>
+                        </View>
+                      }
+                                    
+                />   
+                     <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
+                             <Text>LogOut </Text>
+                    </Pressable>
+                
 
 
       </View>
