@@ -53,8 +53,8 @@ class Post extends Component {
         
         <View style={styles.elementos}>
 
-         <Pressable style={styles.gustar} onPress={() => this.likearPost()}>
-          <Text> {this.state.texto ? "dar me gusta" : "eliminar me gusta"}</Text>
+         <Pressable  onPress={() => this.likearPost()}>
+          <Text style={styles.gustar}> {this.state.texto ? "Me gusta" : "eliminar me gusta"}</Text>
         </Pressable>
         <Text> numero de likes: {this.props.likes.length  > 0? this.props.likes.length: 0 }</Text>
                 
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   container: {
     
     marginVertical: 8,
-    paddingVertical: 10,
+    paddingVertical: 15,
     paddingHorizontal: 14,
     borderWidth: 1,
     borderColor: "#f89f9fff",
@@ -94,6 +94,8 @@ const styles = StyleSheet.create({
   mensaje: {
     fontSize: 16,
     marginBottom: 4,
+     marginVertical: 6,
+    backgroundColor: "#fafafa",
   },
   elementos: {
    flexDirection: "row",          
@@ -110,10 +112,14 @@ const styles = StyleSheet.create({
   borderRadius: 5,
   backgroundColor: "#ffffff",
   alignSelf: "center", 
-
-  
+ 
   },
 
+  gustar:{
+     fontWeight: "500",
+     fontStyle:"italic", 
+     color: "#fd7272ff",
+  },
 });
 
 export default Post;
