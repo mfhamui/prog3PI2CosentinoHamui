@@ -57,28 +57,28 @@ class Profile extends Component {
   render() {
     return (
 
-      <View style={style.container}>
-        <Text style={style.titulo}>PROFILE</Text>
-        <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
-        <Text style={style.email}> email:  {this.state.email} </Text>
+      <View style={styles.container}>
+        <Text style={styles.titulo}>PROFILE</Text>
+        <Text style={styles.usuario}> Hola! {this.state.usuario}</Text>
+        <Text style={styles.email}> email:  {this.state.email} </Text>
 
-        <Text style={style.subtitulo}>Mis posteos:</Text>
+        <Text style={styles.subtitulo}>Mis posteos:</Text>
 
                        <FlatList
                         data= {this.state.posteos}
                         keyExtractor={item=> item.id.toString()}
                         renderItem={({item})=> 
-                        <View style={style.post}> 
+                        <View style={styles.post}> 
                         <Text >{item.data.mensaje}</Text>
 
-                         <Pressable onPress={() => this.eliminar(item.id)}>
+                         <Pressable style={styles.eliminar} onPress={() => this.eliminar(item.id)}>
                           <Text>Eliminar</Text>
                          </Pressable>
                         </View>
                       }
                                     
                 />   
-                     <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
+                     <Pressable style={styles.botonLogout} onPress={ ()=> this.logout()}>
                              <Text>LogOut </Text>
                     </Pressable>
                 
@@ -90,7 +90,7 @@ class Profile extends Component {
     )
   }
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
@@ -145,6 +145,17 @@ const style = StyleSheet.create({
     fontWeight: "bold",
     color: "#000000",
   },
+  eliminar: {
+    marginVertical: 5,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 10,
+    backgroundColor: "#F8C7C7",
+    alignSelf: "flex-end",
+    marginTop: 15
+  }
 })
 
 
