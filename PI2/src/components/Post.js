@@ -14,6 +14,8 @@ class Post extends Component {
         }
 
   }
+  
+  
 
   render() {
 
@@ -25,7 +27,7 @@ class Post extends Component {
          <Pressable style={styles.botonAzul} onPress={() => this.likearPost()}>
           <Text> {this.state.texto ? "dar me gusta" : "eliminar me gusta"}</Text>
         </Pressable>
-        <Text> numero de likes: {this.props.likes.length  }</Text>
+        <Text> numero de likes: {this.props.likes.length  > 0? this.props.likes.length: 0 }</Text>
         <Pressable style={styles.botonAzul} onPress={() => this.props.navigation.navigate('Comentar')}>
           <Text> Comentar </Text>
         </Pressable>

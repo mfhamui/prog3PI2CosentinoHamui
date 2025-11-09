@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 
 import { db } from "../Firebase/Config";
-import  Post  from "../components/Post";
+import  Post  from "../components/Post" 
 
 
 class Home extends Component {
@@ -45,7 +45,7 @@ class Home extends Component {
                 mensaje={item.data.mensaje}
                 createdAt={item.data.createdAt}
                 navigation={this.props.navigation}
-                likes={item.data.likes } 
+                likes={item.data.likes ? item.data.likes : []}
               />
 
             )} />
