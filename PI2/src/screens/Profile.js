@@ -43,16 +43,16 @@ class Profile extends Component {
       });
   }
 
-  
+
   logout() {
     auth.signOut()
       .then(() => {
         this.props.navigation.navigate("Login");
       })
-      .catch( e => console.log(e));
-    }
+      .catch(e => console.log(e));
+  }
 
-    eliminar(){}
+  eliminar() { }
 
   render() {
     return (
@@ -64,16 +64,16 @@ class Profile extends Component {
 
         <Text style={style.subtitulo}>Mis posteos:</Text>
 
-                       <FlatList
-                        data= {this.state.posteos}
-                        keyExtractor={item=> item.id.toString()}
-                        renderItem={({item})=> <Text style={style.post}>{item.data.mensaje}</Text>}
-                                    
-                />   
-                     <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
-                             <Text>LogOut </Text>
-                    </Pressable>
-                
+        <FlatList
+          data={this.state.posteos}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) => <Text style={style.post}>{item.data.mensaje}</Text>}
+
+        />
+        <Pressable style={style.botonLogout} onPress={() => this.logout()}>
+          <Text>LogOut </Text>
+        </Pressable>
+
 
 
       </View>
@@ -94,9 +94,10 @@ const style = StyleSheet.create({
     marginBottom: 2,
   },
   titulo: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 2,
+    marginBottom: 20,
+    alignSelf:"center",
   },
   email: {
     fontSize: 20,
@@ -119,14 +120,17 @@ const style = StyleSheet.create({
   },
   botonLogout: {
     backgroundColor: "#F8C7C7",
-    borderRadius: 18,
+    borderRadius: 10,
     alignItems: "center",
-    paddingHorizontal: 10,
+    paddingHorizontal: 30,
     paddingVertical: 10,
     marginTop: 25,
     marginBottom: 15,
     alignSelf: "center",
     width: "80%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "black",
   },
   textoBotonCerrar: {
     fontSize: 16,

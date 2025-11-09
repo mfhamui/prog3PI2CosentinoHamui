@@ -42,7 +42,7 @@ class NuevoPost extends Component {
          
            <TextInput  style={style.input} 
                keyboardType='default'
-               placeholder='escriba aqui su mensaje...'
+               placeholder='Escriba aqui su mensaje...'
                onChangeText={ text => this.setState({Mensaje:text}) }
                value={this.state.Mensaje} />
            
@@ -72,7 +72,7 @@ class NuevoPost extends Component {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
-    alignSelf:"center",
+    alignSelf:"center"
   },
   input: {
     alignSelf: "center",
@@ -95,6 +95,9 @@ class NuevoPost extends Component {
     alignItems: "center",
     paddingHorizontal: 30,
     paddingVertical: 10,
+    borderColor: "black",
+    borderWidth: 1,
+    borderStyle: "solid",
   },
   texto: {
     fontSize: 16,

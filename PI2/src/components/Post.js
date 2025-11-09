@@ -2,21 +2,21 @@
 import React, { Component } from "react";
 
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { auth, db} from "../Firebase/Config";
+import { auth, db } from "../Firebase/Config";
 import firebase from "firebase";
 
 class Post extends Component {
   constructor(props) {
     super(props);
-      this.state = {
-            texto: true,
-            
-        }
+    this.state = {
+      texto: true,
+
+    }
 
   }
-  
-   likearPost() {
-     if (this.props.likes.includes(auth.currentUser.email)) {
+
+  likearPost() {
+    if (this.props.likes.includes(auth.currentUser.email)) {
       db.collection("posts")
         .doc(this.props.id)
         .update({
@@ -26,8 +26,8 @@ class Post extends Component {
           this.setState({ texto: true })
         )
         .catch((e) => console.log(e));
-    } 
-   
+    }
+
     else {
       db.collection("posts")
         .doc(this.props.id)
@@ -50,18 +50,18 @@ class Post extends Component {
       <View style={styles.container}>
         <Text style={styles.email}>{this.props.email}</Text>
         <Text style={styles.mensaje}>{this.props.mensaje}</Text>
-        
+        <Text> numero de likes: {this.props.likes.length > 0 ? this.props.likes.length : 0}</Text>
         <View style={styles.elementos}>
 
-         <Pressable style={styles.gustar} onPress={() => this.likearPost()}>
-          <Text> {this.state.texto ? "dar me gusta" : "eliminar me gusta"}</Text>
-        </Pressable>
-        <Text> numero de likes: {this.props.likes.length  > 0? this.props.likes.length: 0 }</Text>
-                
+          <Pressable onPress={() => this.likearPost()}>
+            <Text style={styles.gustar}> {this.state.texto ? "Dar me gusta" : "Eliminar me gusta"}</Text>
+          </Pressable>
+          <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar')}>
+            <Text > Comentar </Text>
+          </Pressable>
+
         </View>
-        <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar')}>
-          <Text > Comentar </Text>
-        </Pressable>
+
       </View>
     );
   }
@@ -73,46 +73,54 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   container: {
-    
     marginVertical: 8,
     paddingVertical: 10,
     paddingHorizontal: 14,
     borderWidth: 1,
-    borderColor: "#f89f9fff",
+    borderColor: "black",
     borderRadius: 20,
-    backgroundColor: "#ffffff",
-  
+    backgroundColor: "#ffffff"
   },
-  
+
   email: {
     fontWeight: "bold",
     marginBottom: 4,
-    alignSelf: "center",
-    fontSize:20,
-
+    fontSize: 20,
+    marginBottom: 10
   },
   mensaje: {
     fontSize: 16,
     marginBottom: 4,
   },
   elementos: {
-   flexDirection: "row",          
-  justifyContent: "space-between", 
-  alignItems: "center",          
-  marginTop: 5,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 5,
   },
   comentario: {
     marginVertical: 5,
-  paddingVertical: 3,
-  paddingHorizontal: 8, 
-  borderWidth: 1,
-  borderColor: "#f89f9fff",
-  borderRadius: 5,
-  backgroundColor: "#ffffff",
-  alignSelf: "center", 
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 10,
+    backgroundColor: "#A7D2F2",
+    alignSelf: "center",
+    marginTop: 15
 
-  
   },
+  gustar: {
+    marginVertical: 5,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 10,
+    backgroundColor: "#F8C7C7",
+    alignSelf: "center",
+    marginTop: 15
+  }
 
 });
 
