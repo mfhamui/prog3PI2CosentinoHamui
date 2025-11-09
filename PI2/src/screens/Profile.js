@@ -43,46 +43,41 @@ class Profile extends Component {
       });
   }
 
-  
+
   logout() {
     auth.signOut()
       .then(() => {
         this.props.navigation.navigate("Login");
       })
-      .catch( e => console.log(e));
-    }
+      .catch(e => console.log(e));
+  }
 
-    eliminar(){}
+  eliminar() { }
 
   render() {
     return (
 
-      <View style={style.container}>
-        <Text style={style.titulo}>PROFILE</Text>
-        <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
-        <Text style={style.email}> {this.state.email} </Text>
+      <View style={styles.container}>
+        <Text style={styles.titulo}>PROFILE</Text>
+        <Text style={styles.usuario}> Hola! {this.state.usuario}</Text>
+        <Text style={styles.email}> {this.state.email} </Text>
 
-        <Text style={style.subtitulo}>Mis posteos:</Text>
+        <Text style={styles.subtitulo}>Mis posteos:</Text>
 
-                       <FlatList
-                        data= {this.state.posteos}
-                        keyExtractor={item=> item.id.toString()}
-                        renderItem={({item})=> 
-                        <View style={style.post}> 
-                        <Text style= {style.mensaje}>{item.data.mensaje}</Text>
+        <FlatList
+          data={this.state.posteos}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) =>
+            <View style={styles.post}>
+              <Text >{item.data.mensaje}</Text>
+              
+            </View>
+          }
 
-                         <Pressable   onPress={() => this.eliminar(item.id)}>
-                          <Text style={style.eliminar}>Eliminar</Text>
-                         </Pressable>
-                        </View>
-                      }
-                                    
-                />   
-                     <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
-                             <Text>LogOut </Text>
-                    </Pressable>
-                
-
+        />
+        <Pressable style={styles.botonLogout} onPress={() => this.logout()}>
+          <Text>LogOut </Text>
+        </Pressable>
 
       </View>
 
@@ -90,7 +85,7 @@ class Profile extends Component {
     )
   }
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
@@ -102,10 +97,9 @@ const style = StyleSheet.create({
     marginBottom: 2,
   },
   titulo: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: "bold",
     marginBottom: 2,
-   
   },
   email: {
     fontSize: 15,
@@ -116,7 +110,7 @@ const style = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 14,
-    color:  "#F8C7C7",
+    color: "#F8C7C7",
   },
   post: {
     marginVertical: 8,
@@ -129,31 +123,22 @@ const style = StyleSheet.create({
   },
   botonLogout: {
     backgroundColor: "#F8C7C7",
-    borderRadius: 18,
+    borderRadius: 10,
     alignItems: "center",
-    paddingHorizontal: 10,
+    paddingHorizontal: 30,
     paddingVertical: 10,
     marginTop: 25,
     marginBottom: 15,
     alignSelf: "center",
     width: "80%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "black",
   },
   textoBotonCerrar: {
     fontSize: 16,
     fontWeight: "bold",
     color: "#000000",
-  },
- mensaje: {
-    fontSize: 16,
-    marginBottom: 7,
-     marginVertical: 6,
-    backgroundColor: "#fafafa",
-  },
-
-  eliminar:{
-     fontWeight: "500",
-     fontStyle:"italic", 
-     color: "#fd7272ff",
   },
 })
 

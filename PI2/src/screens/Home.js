@@ -34,7 +34,6 @@ class Home extends Component {
       <View style={style.container}>
         <Text style={style.titulo}>HOME</Text>
 
-        <Text>Bienvenido!</Text>
 
         <FlatList
           data={this.state.posts}
@@ -64,15 +63,16 @@ const style = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 30,
     backgroundColor: "#ffffff",
-   
+
   },
 
   titulo: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 20,
+    alignSelf: "center"
   },
- 
+
 
 })
 

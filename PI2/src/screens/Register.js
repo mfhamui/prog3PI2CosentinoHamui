@@ -89,7 +89,6 @@ class Register extends Component {
           <Text style={styles.texto}> Registrarse </Text>
         </Pressable>
 
-
         <Pressable style={styles.botonB} onPress={() => this.props.navigation.navigate('Login')}>
           <Text style={styles.texto}> Ya tengo cuenta </Text>
         </Pressable>
@@ -120,14 +119,14 @@ const styles = StyleSheet.create({
     margin: 10
   },
   boton: {
-    backgroundColor: "rgb(135, 206, 235)",
-    borderRadius: 4,
+    backgroundColor: "#A7D2F2",
+    borderRadius: 10,
     borderStyle: "solid",
     borderWidth: 1,
     borderColor: "black",
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    textAlign: "center"
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    alignItems: "center"
   },
   texto: {
     color: "black"
