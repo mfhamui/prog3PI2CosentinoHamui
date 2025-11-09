@@ -7,6 +7,31 @@ class Post extends Component {
   constructor(props) {
     super(props);
   }
+  likearPost() {
+    if (this.props.likes.includes(auth.currentUser.email)) {
+     db.collection("posts")
+       .doc(this.props.id)
+       .update({
+         likes: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email),
+       })
+       .then(() =>
+         this.setState({ texto: true })
+       )
+       .catch((e) => console.log(e));
+   } 
+  
+   else {
+     db.collection("posts")
+       .doc(this.props.id)
+       .update({
+         likes: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email),
+       })
+       .then(() =>
+         this.setState({ texto: false })
+       )
+       .catch((e) => console.log(e));
+   }
+ }
   render() {
 
     return (
@@ -16,10 +41,12 @@ class Post extends Component {
         <Pressable style={styles.botonAzul}>
           <Text> Like </Text>
         </Pressable>
-        
+
         <Pressable style={styles.botonAzul} onPress={() => this.props.navigation.navigate('Comentar')}>
           <Text> Comentar </Text>
         </Pressable>
+    
+        
 
       </View>
     );
