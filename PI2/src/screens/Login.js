@@ -50,14 +50,14 @@ class Login extends Component {
 
                 <TextInput style={styles.input}
                     keyboardType='email-address'
-                    placeholder='email'
+                    placeholder='Ingrese su email'
                     onChangeText={text => this.setState({ email: text })}
                     value={this.state.email} />
 
 
                 <TextInput style={styles.input}
                     keyboardType='default'
-                    placeholder='password'
+                    placeholder='Ingrese su contraseña'
                     secureTextEntry={true}
                     onChangeText={text => this.setState({ password: text })}
                     value={this.state.password} />
@@ -92,31 +92,23 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     botonB: {
-        backgroundColor: "rgb(135, 206, 235)",
         borderRadius: 4,
         paddingHorizontal: 10,
         paddingVertical: 6,
         margin: 10
     },
     boton: {
-        backgroundColor: "#28a745",
+        backgroundColor: "rgb(135, 206, 235)",
         borderRadius: 4,
         borderStyle: "solid",
         borderWidth: 1,
-        borderColor: "#28a745",
+        borderColor: "black",
         paddingHorizontal: 10,
         paddingVertical: 6,
         textAlign: "center"
     },
-    botonA: {
-        backgroundColor: "#FFE880",
-        borderRadius: 4,
-        paddingHorizontal: 10,
-        paddingVertical: 6,
-        margin: 10
-    },
     texto: {
-        color: "#fff"
+        color: "black"
     },
     input: {
         height: 20,
