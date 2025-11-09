@@ -35,19 +35,19 @@ class NuevoPost extends Component {
         
        return(
           <View style= {StyleSheet.container}>
-            <Text style={style.titulo}>Publicar:</Text>
+            <Text style={style.titulo}>Crear nuevo post:</Text>
            
          
          
            <TextInput  style={style.input} 
                keyboardType='default'
-               placeholder='mensaje'
+               placeholder='escriba aqui su mensaje...'
                onChangeText={ text => this.setState({Mensaje:text}) }
                value={this.state.Mensaje} />
            
            
            <Pressable style={style.boton} onPress={() => this.onSubmit( this.state.Mensaje)}>
-           <Text style={style.texto}> Guardar posts </Text> 
+           <Text style={style.texto}> Publicar post </Text> 
            </Pressable> 
    
    
@@ -60,55 +60,45 @@ class NuevoPost extends Component {
        )}
       }
    const style= StyleSheet.create({
-       container: {
-       flex: 1, 
-       justifyContent: "center", 
-       alignItems: "center", 
-       paddingHorizontal: 10,
-       marginTop:20,
-       }, 
-   
-         titulo: {
-       fontSize: 26,
-       fontWeight: "bold",
-       marginBottom: 10,
-     },
-   
-     input: {
-       height:20,
-       paddingHorizontal: 10,
-       paddingVertical: 15,
-       borderWidth:1,
-       borderColor: "#ccc", 
-       borderCurve: 6, 
-       marginVertical: 10, 
-       borderStyle: "solid"
-     },
-   
-     boton: {
-       backgroundColor: "#28a745",
-       paddingHorizontal:10,
-       paddingVertical:6, 
-       textAlign: "center",
-       alignItems: "center",
-       borderRadius: 4, 
-       borderWidth: 1, 
-       borderStyle: "solid",
-       borderColor: "#28a745"
-     },
-     texto : {color: "#fff",
-   },
-   
-   
-       botonAzul: {
-       backgroundColor: "#7dc5f5",
-       borderRadius: 4,
-       alignItems: "center",
-      paddingHorizontal:10,
-       paddingVertical:6, 
-       marginTop: 10,
-      
-     },
+    container: {
+    flex: 1, 
+    justifyContent: "center", 
+    alignItems: "center", 
+    paddingHorizontal: 20,
+    backgroundColor: "#fff",
+  }, 
+  titulo: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    alignSelf:"center",
+  },
+  input: {
+    alignSelf: "center",
+    textAlign: "center",
+    textAlignVertical:"top",
+    justifyContent:"flex-start",
+    width: "85%",
+    height: 120,
+    borderWidth: 1,
+    borderColor: "#999",
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingTop: 0,
+    marginBottom: 20,
+    backgroundColor: "#fff",
+  },
+  boton: {
+    backgroundColor: "#A7D2F2",
+    borderRadius: 10,
+    alignItems: "center",
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+  },
+  texto: {
+    fontSize: 16,
+    color: "#000",
+  },
    
    })
 
