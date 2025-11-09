@@ -59,8 +59,8 @@ class Post extends Component {
         <Text> numero de likes: {this.props.likes.length  > 0? this.props.likes.length: 0 }</Text>
                 
         </View>
-        <Pressable style={styles.botonAzul} onPress={() => this.props.navigation.navigate('Comentar')}>
-          <Text> Comentar </Text>
+        <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar')}>
+          <Text > Comentar </Text>
         </Pressable>
       </View>
     );
@@ -100,8 +100,19 @@ const styles = StyleSheet.create({
   justifyContent: "space-between", 
   alignItems: "center",          
   marginTop: 5,
+  },
+  comentario: {
+    marginVertical: 5,
+  paddingVertical: 3,
+  paddingHorizontal: 8, 
+  borderWidth: 1,
+  borderColor: "#f89f9fff",
+  borderRadius: 5,
+  backgroundColor: "#ffffff",
+  alignSelf: "center", 
 
-  }
+  
+  },
 
 });
 
