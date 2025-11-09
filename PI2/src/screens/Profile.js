@@ -67,7 +67,15 @@ class Profile extends Component {
                        <FlatList
                         data= {this.state.posteos}
                         keyExtractor={item=> item.id.toString()}
-                        renderItem={({item})=> <Text style={style.post}>{item.data.mensaje}</Text>}
+                        renderItem={({item})=> 
+                        <View style={style.post}> 
+                        <Text >{item.data.mensaje}</Text>
+
+                         <Pressable onPress={() => this.eliminar(item.id)}>
+                          <Text>Eliminar</Text>
+                         </Pressable>
+                        </View>
+                      }
                                     
                 />   
                      <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
