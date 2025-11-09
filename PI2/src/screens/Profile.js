@@ -49,8 +49,10 @@ class Profile extends Component {
       .then(() => {
         this.props.navigation.navigate("Login");
       })
-      .catch(e => console.log(e));
-  }
+      .catch( e => console.log(e));
+    }
+
+    eliminar(){}
 
   render() {
     return (
@@ -62,15 +64,16 @@ class Profile extends Component {
 
         <Text style={style.subtitulo}>Mis posteos:</Text>
 
-        <FlatList
-          data={this.state.posteos}
-          keyExtractor={item => item.id.toString()}
-          renderItem={({ item }) => <Text style={style.post}>{item.data.mensaje}</Text>} />
-
-        <Pressable style={style.botonLogout} onPress={() => this.logout()}>
-          <Text>Log Out </Text>
-        </Pressable>
-
+                       <FlatList
+                        data= {this.state.posteos}
+                        keyExtractor={item=> item.id.toString()}
+                        renderItem={({item})=> <Text style={style.post}>{item.data.mensaje}</Text>}
+                                    
+                />   
+                     <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
+                             <Text>LogOut </Text>
+                    </Pressable>
+                
 
 
       </View>

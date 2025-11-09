@@ -35,7 +35,7 @@ class NuevoPost extends Component {
         console.log(auth);
         
        return(
-          <View style= {StyleSheet.container}>
+          <View style= {style.container}>
             <Text style={style.titulo}>Crear nuevo post:</Text>
            
          
