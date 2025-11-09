@@ -70,9 +70,7 @@ class Profile extends Component {
           renderItem={({ item }) =>
             <View style={styles.post}>
               <Text >{item.data.mensaje}</Text>
-              <Pressable onPress={() => this.eliminar(item.id)}>
-                <Text>Eliminar</Text>
-              </Pressable>
+              
             </View>
           }
 
