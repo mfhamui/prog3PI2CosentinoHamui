@@ -1,10 +1,10 @@
-import  React, {Component}  from "react";
+import React, { Component } from "react";
 import { View, Text, Pressable, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
 import { auth, db } from "../Firebase/Config"
 
 class Profile extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       usuario: "",
@@ -14,7 +14,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    
+
     db.collection("users")
       .where("email", "==", auth.currentUser.email)
       .onSnapshot(docs => {
@@ -26,7 +26,7 @@ class Profile extends Component {
         });
       });
 
- 
+
     db.collection("posts")
       .where("email", "==", auth.currentUser.email)
       .onSnapshot(docs => {
@@ -43,25 +43,26 @@ class Profile extends Component {
       });
   }
 
-    logout(){
+  
+  logout() {
     auth.signOut()
       .then(() => {
-        this.props.navigation.navigate("Login"); 
+        this.props.navigation.navigate("Login");
       })
       .catch( e => console.log(e));
     }
 
     eliminar(){}
 
-    render(){
-    return(
-        
-            <View style= {style.container}>
-                  <Text style={style.titulo}>Profile</Text>
-                  <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
-                    <Text  style={style.email}> email:  {this.state.email} </Text>    
+  render() {
+    return (
 
-                    <Text style={style.subtitulo}>Mis posteos:</Text>  
+      <View style={style.container}>
+        <Text style={style.titulo}>Profile</Text>
+        <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
+        <Text style={style.email}> email:  {this.state.email} </Text>
+
+        <Text style={style.subtitulo}>Mis posteos:</Text>
 
                        <FlatList
                         data= {this.state.posteos}
@@ -69,20 +70,20 @@ class Profile extends Component {
                         renderItem={({item})=> <Text style={style.post}>{item.data.mensaje}</Text>}
                                     
                 />   
-
                      <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
                              <Text>LogOut </Text>
                     </Pressable>
                 
 
-                   
-            </View>
-          
-        
-    )}
+
+      </View>
+
+
+    )
+  }
 }
-const style= StyleSheet.create({
-   container: {
+const style = StyleSheet.create({
+  container: {
     flex: 1,
     paddingHorizontal: 20,
     paddingTop: 30,
