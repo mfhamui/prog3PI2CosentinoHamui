@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 14,
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#F8C7C7",
     borderRadius: 20,
     backgroundColor: "#ffffff"
   },
@@ -88,9 +88,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10
   },
-  mensaje: {
+   mensaje: {
     fontSize: 16,
-    marginBottom: 4,
+    marginBottom: 7,
+    marginVertical: 6,
+    backgroundColor: "#fafafa",
+    padding:5,
   },
   elementos: {
     flexDirection: "row",
