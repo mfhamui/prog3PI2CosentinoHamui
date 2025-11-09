@@ -51,15 +51,17 @@ class Post extends Component {
         <Text style={styles.email}>{this.props.email}</Text>
         <Text style={styles.mensaje}>{this.props.mensaje}</Text>
         
-         <Pressable style={styles.botonAzul} onPress={() => this.likearPost()}>
+        <View style={styles.elementos}>
+
+         <Pressable style={styles.gustar} onPress={() => this.likearPost()}>
           <Text> {this.state.texto ? "dar me gusta" : "eliminar me gusta"}</Text>
         </Pressable>
         <Text> numero de likes: {this.props.likes.length  > 0? this.props.likes.length: 0 }</Text>
-        <Pressable style={styles.botonAzul} onPress={() => this.props.navigation.navigate('Comentar')}>
-          <Text> Comentar </Text>
+                
+        </View>
+        <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar')}>
+          <Text > Comentar </Text>
         </Pressable>
-
-
       </View>
     );
   }
@@ -71,21 +73,45 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   container: {
-    flex: 1,
+    
+    marginVertical: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 6,
-    padding: 10,
-    marginVertical: 5,
-    width: "100%"
+    borderColor: "#f89f9fff",
+    borderRadius: 20,
+    backgroundColor: "#ffffff",
+  
   },
+  
   email: {
     fontWeight: "bold",
     marginBottom: 4,
+    alignSelf: "center",
+    fontSize:20,
+
   },
   mensaje: {
     fontSize: 16,
     marginBottom: 4,
+  },
+  elementos: {
+   flexDirection: "row",          
+  justifyContent: "space-between", 
+  alignItems: "center",          
+  marginTop: 5,
+  },
+  comentario: {
+    marginVertical: 5,
+  paddingVertical: 3,
+  paddingHorizontal: 8, 
+  borderWidth: 1,
+  borderColor: "#f89f9fff",
+  borderRadius: 5,
+  backgroundColor: "#ffffff",
+  alignSelf: "center", 
+
+  
   },
 
 });

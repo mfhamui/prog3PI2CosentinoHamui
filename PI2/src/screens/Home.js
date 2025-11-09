@@ -61,9 +61,10 @@ const style = StyleSheet.create({
 
   container: {
     flex: 1,
-    paddingHorizontal: 10,
-    marginTop: 20,
-    width: "100%"
+    paddingHorizontal: 20,
+    paddingTop: 30,
+    backgroundColor: "#ffffff",
+   
   },
 
   titulo: {
@@ -71,6 +72,7 @@ const style = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 10,
   },
+ 
 
 })
 
