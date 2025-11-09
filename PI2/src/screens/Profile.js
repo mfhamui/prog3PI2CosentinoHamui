@@ -58,7 +58,7 @@ class Profile extends Component {
     return (
 
       <View style={style.container}>
-        <Text style={style.titulo}>Profile</Text>
+        <Text style={style.titulo}>PROFILE</Text>
         <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
         <Text style={style.email}> email:  {this.state.email} </Text>
 
