@@ -23,14 +23,18 @@ class Register extends Component {
       return
     }
 
-    if (!this.state.email.includes("@")) {
+    if (!this.state.email.includes("@")||!this.state.email.includes(".com")){
       this.setState({ error: "Email no válido" })
       return
     }
+
+    
     if (this.state.password.length < 6) {
       this.setState({ error: "La password debe tener una longitud mínima de 6 caracteres" })
       return
     }
+
+
     auth.createUserWithEmailAndPassword(email, password)
 
       .then(response => {
