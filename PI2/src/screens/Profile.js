@@ -60,7 +60,7 @@ class Profile extends Component {
       <View style={style.container}>
         <Text style={style.titulo}>PROFILE</Text>
         <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
-        <Text style={style.email}> email:  {this.state.email} </Text>
+        <Text style={style.email}> {this.state.email} </Text>
 
         <Text style={style.subtitulo}>Mis posteos:</Text>
 
@@ -69,10 +69,10 @@ class Profile extends Component {
                         keyExtractor={item=> item.id.toString()}
                         renderItem={({item})=> 
                         <View style={style.post}> 
-                        <Text >{item.data.mensaje}</Text>
+                        <Text style= {style.mensaje}>{item.data.mensaje}</Text>
 
-                         <Pressable onPress={() => this.eliminar(item.id)}>
-                          <Text>Eliminar</Text>
+                         <Pressable   onPress={() => this.eliminar(item.id)}>
+                          <Text style={style.eliminar}>Eliminar</Text>
                          </Pressable>
                         </View>
                       }
@@ -105,16 +105,18 @@ const style = StyleSheet.create({
     fontSize: 26,
     fontWeight: "bold",
     marginBottom: 2,
+    color: "#F8C7C7",
   },
   email: {
-    fontSize: 20,
+    fontSize: 15,
     color: "#555555",
     marginBottom: 18,
   },
   subtitulo: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: "bold",
     marginBottom: 14,
+    color:  "#F8C7C7",
   },
   post: {
     marginVertical: 8,
@@ -140,6 +142,18 @@ const style = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: "#000000",
+  },
+ mensaje: {
+    fontSize: 16,
+    marginBottom: 7,
+     marginVertical: 6,
+    backgroundColor: "#fafafa",
+  },
+
+  eliminar:{
+     fontWeight: "500",
+     fontStyle:"italic", 
+     color: "#fd7272ff",
   },
 })
 
