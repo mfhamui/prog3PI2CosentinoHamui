@@ -40,10 +40,12 @@ class Home extends Component {
             keyExtractor={item => item.id.toString()}
             renderItem={({ item }) => (
               <Post
+                id={item.id}   
                 email={item.data.email}
                 mensaje={item.data.mensaje}
                 createdAt={item.data.createdAt}
                 navigation={this.props.navigation}
+                likes={item.data.likes } 
               />
 
             )} />

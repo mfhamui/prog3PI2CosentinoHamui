@@ -18,6 +18,7 @@ class NuevoPost extends Component {
       email: auth.currentUser.email,
       mensaje: mensaje,
       createdAt: Date.now(),
+      likes: [] 
     })
     .then((response) => {
      console.log(response);
