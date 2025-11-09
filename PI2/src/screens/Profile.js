@@ -51,6 +51,8 @@ class Profile extends Component {
       .catch( e => console.log(e));
     }
 
+    eliminar(){}
+
     render(){
     return(
         
@@ -67,6 +69,7 @@ class Profile extends Component {
                         renderItem={({item})=> <Text style={style.post}>{item.data.mensaje}</Text>}
                                     
                 />   
+
                      <Pressable style={style.botonLogout} onPress={ ()=> this.logout()}>
                              <Text>LogOut </Text>
                     </Pressable>
