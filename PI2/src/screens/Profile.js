@@ -57,10 +57,10 @@ class Profile extends Component {
   render() {
     return (
 
-      <View style={styles.container}>
-        <Text style={styles.titulo}>PROFILE</Text>
-        <Text style={styles.usuario}> Hola! {this.state.usuario}</Text>
-        <Text style={styles.email}> email:  {this.state.email} </Text>
+      <View style={style.container}>
+        <Text style={style.titulo}>PROFILE</Text>
+        <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
+        <Text style={style.email}> {this.state.email} </Text>
 
         <Text style={styles.subtitulo}>Mis posteos:</Text>
 
@@ -68,10 +68,10 @@ class Profile extends Component {
                         data= {this.state.posteos}
                         keyExtractor={item=> item.id.toString()}
                         renderItem={({item})=> 
-                        <View style={styles.post}> 
+                        <View style={style.post}> 
                         <Text >{item.data.mensaje}</Text>
 
-                         <Pressable style={styles.eliminar} onPress={() => this.eliminar(item.id)}>
+                         <Pressable onPress={() => this.eliminar(item.id)}>
                           <Text>Eliminar</Text>
                          </Pressable>
                         </View>
@@ -104,18 +104,18 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 20,
-    alignSelf:"center",
+    marginBottom: 2,
   },
   email: {
-    fontSize: 20,
+    fontSize: 15,
     color: "#555555",
     marginBottom: 18,
   },
   subtitulo: {
-    fontSize: 22,
+    fontSize: 18,
     fontWeight: "bold",
     marginBottom: 14,
+    color:  "#F8C7C7",
   },
   post: {
     marginVertical: 8,
@@ -145,17 +145,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#000000",
   },
-  eliminar: {
-    marginVertical: 5,
-    paddingHorizontal: 30,
-    paddingVertical: 10,
-    borderWidth: 1,
-    borderColor: "black",
-    borderRadius: 10,
-    backgroundColor: "#F8C7C7",
-    alignSelf: "flex-end",
-    marginTop: 15
-  }
 })
 
 
