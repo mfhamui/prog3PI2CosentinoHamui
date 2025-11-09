@@ -105,7 +105,7 @@ const style = StyleSheet.create({
     fontSize: 26,
     fontWeight: "bold",
     marginBottom: 2,
-    color: "#F8C7C7",
+   
   },
   email: {
     fontSize: 15,
