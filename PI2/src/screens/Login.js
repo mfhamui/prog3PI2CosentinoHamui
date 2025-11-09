@@ -11,6 +11,14 @@ class Login extends Component {
             error: ""
         }
     }
+    componentDidMount() {
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                this.props.navigation.navigate('Menu');
+            }
+        })
+    }
+
     onSubmit(email, password) {
         console.log(this.state);
         if (!this.state.email.includes("@")) {
@@ -30,6 +38,7 @@ class Login extends Component {
                 this.setState({ error: "Credenciales incorrectas" });
 
             })
+
 
     }
     render() {
