@@ -63,16 +63,16 @@ const style = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 30,
     backgroundColor: "#ffffff",
-   
+
   },
 
   titulo: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
-    alignSelf:"center"
+    alignSelf: "center"
   },
- 
+
 
 })
 

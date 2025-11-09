@@ -64,25 +64,22 @@ class Profile extends Component {
 
         <Text style={styles.subtitulo}>Mis posteos:</Text>
 
-                       <FlatList
-                        data= {this.state.posteos}
-                        keyExtractor={item=> item.id.toString()}
-                        renderItem={({item})=> 
-                        <View style={styles.post}> 
-                        <Text >{item.data.mensaje}</Text>
+        <FlatList
+          data={this.state.posteos}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) =>
+            <View style={styles.post}>
+              <Text >{item.data.mensaje}</Text>
+              <Pressable onPress={() => this.eliminar(item.id)}>
+                <Text>Eliminar</Text>
+              </Pressable>
+            </View>
+          }
 
-                         <Pressable onPress={() => this.eliminar(item.id)}>
-                          <Text>Eliminar</Text>
-                         </Pressable>
-                        </View>
-                      }
-                                    
-                />   
-                     <Pressable style={styles.botonLogout} onPress={ ()=> this.logout()}>
-                             <Text>LogOut </Text>
-                    </Pressable>
-                
-
+        />
+        <Pressable style={styles.botonLogout} onPress={() => this.logout()}>
+          <Text>LogOut </Text>
+        </Pressable>
 
       </View>
 
@@ -115,7 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 14,
-    color:  "#F8C7C7",
+    color: "#F8C7C7",
   },
   post: {
     marginVertical: 8,

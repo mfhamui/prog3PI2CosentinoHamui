@@ -7,7 +7,7 @@ class Comentar extends Component {
         super(props);
         this.state = {
             comentario: ""
-           
+
         }
     }
     onSubmit() {

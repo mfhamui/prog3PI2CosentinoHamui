@@ -7,15 +7,13 @@ const Stack = createNativeStackNavigator();
 
 function NavegacionComentar() {
   return (
-   
-   <NavigationContainer>
-     <Stack.Navigator>
-        <Stack.Screen name="Comentar" component={ Comentar } options={ { headerShown: false } } />
-        
 
-      
-     </Stack.Navigator>
-   </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Comentar" component={Comentar} options={{ headerShown: false }} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
 
   );
 }

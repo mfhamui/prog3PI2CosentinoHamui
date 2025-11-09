@@ -85,7 +85,6 @@ class Register extends Component {
           <Text style={styles.texto}> Registrarse </Text>
         </Pressable>
 
-
         <Pressable style={styles.botonB} onPress={() => this.props.navigation.navigate('Login')}>
           <Text style={styles.texto}> Ya tengo cuenta </Text>
         </Pressable>
