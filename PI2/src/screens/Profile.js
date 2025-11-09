@@ -57,10 +57,10 @@ class Profile extends Component {
   render() {
     return (
 
-      <View style={style.container}>
-        <Text style={style.titulo}>PROFILE</Text>
-        <Text style={style.usuario}> Hola! {this.state.usuario}</Text>
-        <Text style={style.email}> {this.state.email} </Text>
+      <View style={styles.container}>
+        <Text style={styles.titulo}>PROFILE</Text>
+        <Text style={styles.usuario}> Hola! {this.state.usuario}</Text>
+        <Text style={styles.email}> {this.state.email} </Text>
 
         <Text style={styles.subtitulo}>Mis posteos:</Text>
 
@@ -68,7 +68,7 @@ class Profile extends Component {
                         data= {this.state.posteos}
                         keyExtractor={item=> item.id.toString()}
                         renderItem={({item})=> 
-                        <View style={style.post}> 
+                        <View style={styles.post}> 
                         <Text >{item.data.mensaje}</Text>
 
                          <Pressable onPress={() => this.eliminar(item.id)}>
