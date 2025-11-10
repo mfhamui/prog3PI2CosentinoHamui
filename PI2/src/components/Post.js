@@ -15,6 +15,8 @@ class Post extends Component {
 
   }
 
+ 
+
   likearPost() {
     if (this.props.likes.includes(auth.currentUser.email)) {
       db.collection("posts")
