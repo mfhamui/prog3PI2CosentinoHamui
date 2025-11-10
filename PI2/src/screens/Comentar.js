@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Pressable, TextInput } from "react-native";
+import { StyleSheet, Text, View, Pressable, TextInput, FlatList } from "react-native";
 
 import { auth, db } from "../Firebase/Config";
 import firebase from "firebase";
@@ -9,36 +9,68 @@ class Comentar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comentario: ""
+            comentario: "",
+            comentarios: []
 
         }
     }
+    componentDidMount(){
+        this.setState({
+            comentarios: this.props.route.params.comentarios
+        })
+    }
     onSubmit() {
         console.log(this.state);
-        this.props.navigation.navigate('Login')
+        db.collection("posts")
+            .doc(this.props.route.params.id)
+            .update({
+                comentarios: firebase.firestore.FieldValue.arrayUnion({comentario: this.state.comentario, email: auth.currentUser.email})
+            })
+            .then(() =>
+                // this.props.navigation.navigate('Login')
+                this.setState ({
+                    comentarios: this.state.comentarios.concat({comentario: this.state.comentario, email: auth.currentUser.email}),
+                    comentario: ""
+                })
+        )
+            .catch((e) => console.log(e));
+
+
+
     }
     render() {
+        console.log(this.props);
+        
         return (
             <View style={styles.container}>
-                <Text style={styles.email}>{this.props.email}</Text>
-                <Text style={styles.mensaje}>{this.props.mensaje}</Text>
-                <Text> numero de likes: {this.props.likes.length > 0 ? this.props.likes.length : 0}</Text>
+                <Text style={styles.email}>{this.props.route.params.email}</Text>
+                <Text style={styles.mensaje}>{this.props.route.params.mensaje}</Text>
+                <Text> numero de likes: {this.props.route.params.likes.length > 0 ? this.props.route.params.likes.length : 0}</Text>
 
-                <View style={styles.post}>
-                    <Text style={styles.usuario}>{this.props.usuario}</Text>
-                    <Text style={styles.comentario}>{this.props.comentario}</Text>
-                </View>
+                
 
 
                 <TextInput style={styles.input}
                     keyboardType='default'
-                    placeholder='comentario'
+                    placeholder='Comenta aquí el post'
                     onChangeText={text => this.setState({ comentario: text })}
                     value={this.state.comentario} />
 
                 <Pressable style={styles.boton} onPress={() => this.onSubmit()}>
-                    <Text style={styles.texto}> enviar </Text>
+                    <Text style={styles.texto}> Publicar comentario </Text>
                 </Pressable>
+
+                <FlatList 
+                data={this.state.comentarios}
+                keyExtractor={item => item.comentario}
+                renderItem={({item}) => 
+                 <View>
+                    <Text> {item.email} </Text>
+                    <Text> {item.comentario} </Text>
+
+                 </View>
+                }
+                />
 
             </View>
 
@@ -102,7 +134,7 @@ const styles = StyleSheet.create({
         textAlignVertical: "top",
         justifyContent: "flex-start",
         width: "85%",
-        height: 120,
+        height: 100,
         borderWidth: 1,
         borderColor: "#999",
         borderRadius: 8,
