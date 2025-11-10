@@ -15,7 +15,14 @@ class Post extends Component {
 
   }
 
- 
+  componentDidMount() {
+  if (this.props.likes.includes(auth.currentUser.email)) {
+    this.setState({ texto: false });
+  } else {
+    this.setState({ texto: true });
+  }
+}
+
 
   likearPost() {
     if (this.props.likes.includes(auth.currentUser.email)) {
