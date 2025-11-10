@@ -21,6 +21,8 @@ class Post extends Component {
   } else {
     this.setState({ texto: true });
   }
+
+  
 }
 
 
