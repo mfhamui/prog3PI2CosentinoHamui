@@ -19,11 +19,12 @@ class NuevoPost extends Component {
       email: auth.currentUser.email,
       mensaje: mensaje,
       createdAt: Date.now(),
-      likes: []
+      likes: [], 
+      comentarios: []
     })
       .then((response) => {
         console.log(response);
-        this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('NavegacionComentar', {screen: "Home"})
 
       })
       .catch(error => console.log(error));

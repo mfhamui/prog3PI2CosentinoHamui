@@ -15,6 +15,15 @@ class Post extends Component {
 
   }
 
+  componentDidMount() {
+  if (this.props.likes.includes(auth.currentUser.email)) {
+    this.setState({ texto: false });
+  } else {
+    this.setState({ texto: true });
+  }
+}
+
+
   likearPost() {
     if (this.props.likes.includes(auth.currentUser.email)) {
       db.collection("posts")
@@ -56,7 +65,7 @@ class Post extends Component {
           <Pressable onPress={() => this.likearPost()}>
             <Text style={styles.gustar}> {this.state.texto ? "Dar me gusta" : "Eliminar me gusta"}</Text>
           </Pressable>
-          <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar')}>
+          <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar', { comentarios: this.props.comentarios, likes: this.props.likes, email:this.props.email})}>
             <Text > Comentar </Text>
           </Pressable>
 
