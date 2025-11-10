@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Pressable, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
 import { auth, db } from "../Firebase/Config"
+import Post from "../components/Post"
 
 class Profile extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class Profile extends Component {
       .catch(e => console.log(e));
   }
 
-  eliminar() { }
+ 
 
   render() {
     return (
@@ -67,14 +68,18 @@ class Profile extends Component {
         <FlatList
           data={this.state.posteos}
           keyExtractor={item => item.id.toString()}
-          renderItem={({ item }) =>
-            <View style={styles.post}>
-              <Text style={styles.mensaje} >{item.data.mensaje}</Text>
-
-            </View>
-          }
-
+          renderItem={({ item }) => (
+            <Post
+              id={item.id}
+              email={item.data.email}
+              mensaje={item.data.mensaje}
+              createdAt={item.data.createdAt}
+              navigation={this.props.navigation}
+              likes={item.data.likes ? item.data.likes : []}
+              comentarios={item.data.comentarios ? item.data.comentarios : []}
+            />)}
         />
+
         <Pressable style={styles.botonLogout} onPress={() => this.logout()}>
           <Text>LogOut </Text>
         </Pressable>
