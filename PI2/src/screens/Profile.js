@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
      marginVertical: 6,
     backgroundColor: "#fafafa",
     padding:5,
+    borderRadius: 10
   },
 
 })
