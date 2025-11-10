@@ -43,30 +43,33 @@ class Comentar extends Component {
         
         return (
             <View style={styles.container}>
+
+            <View style={styles.perfil}>
                 <Text style={styles.email}>{this.props.route.params.email}</Text>
                 <Text style={styles.mensaje}>{this.props.route.params.mensaje}</Text>
                 <Text> numero de likes: {this.props.route.params.likes.length > 0 ? this.props.route.params.likes.length : 0}</Text>
 
-                
+            </View>
 
-
+            <View style={styles.box}>
                 <TextInput style={styles.input}
                     keyboardType='default'
-                    placeholder='Comenta aquí el post'
+                    placeholder='Comenta aquí el post...'
                     onChangeText={text => this.setState({ comentario: text })}
                     value={this.state.comentario} />
 
                 <Pressable style={styles.boton} onPress={() => this.onSubmit()}>
                     <Text style={styles.texto}> Publicar comentario </Text>
                 </Pressable>
-
+            </View>
+            <Text style={styles.subtitulo}>Otros comentarios:</Text>
                 <FlatList 
                 data={this.state.comentarios}
                 keyExtractor={item => item.comentario}
                 renderItem={({item}) => 
-                 <View>
-                    <Text> {item.email} </Text>
-                    <Text> {item.comentario} </Text>
+                 <View style={styles.comentar}>
+                    <Text style={styles.usuario}> {item.email} </Text>
+                    <Text style={styles.mensaje}> {item.comentario} </Text>
 
                  </View>
                 }
@@ -84,35 +87,36 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     container: {
-        marginVertical: 8,
-        paddingVertical: 10,
-        paddingHorizontal: 14,
-        borderWidth: 1,
-        borderColor: "#F8C7C7",
-        borderRadius: 20,
-        backgroundColor: "#ffffff"
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 30,
+    backgroundColor: "#ffffff",
     },
-    post: {
-        marginVertical: 8,
-        paddingVertical: 10,
-        paddingHorizontal: 14,
-        borderWidth: 1,
-        borderColor: "#F8C7C7",
-        borderRadius: 20,
-        backgroundColor: "#ffffff",
+    perfil: {
+         marginVertical: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderWidth: 2,
+    borderColor: "#A7D2F2",
+    borderRadius: 20,
+    backgroundColor: "#ffffff"
     },
-    comentario: {
-        marginBottom: 4,
-        fontSize: 20,
-        marginBottom: 10,
-        backgroundColor: "#fafafa",
-    },
+
+    comentar:{ marginVertical: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderWidth: 1,
+    borderColor: "#A7D2F2",
+    borderRadius: 20,
+    backgroundColor: "#ffffff"},
+    box:{  marginVertical: 30,},
+   
+  
     usuario: {
         fontSize: 16,
-        marginBottom: 7,
-        marginVertical: 6,
-        padding: 5,
-        borderRadius: 10
+        fontWeight:"bold",
+    
+  
     },
     email: {
         fontWeight: "bold",
@@ -126,7 +130,7 @@ const styles = StyleSheet.create({
         marginVertical: 6,
         backgroundColor: "#fafafa",
         padding: 5,
-        borderRadius: 10
+        borderRadius: 20
     },
     input: {
         alignSelf: "center",
@@ -134,30 +138,38 @@ const styles = StyleSheet.create({
         textAlignVertical: "top",
         justifyContent: "flex-start",
         width: "85%",
-        height: 100,
+        height: 80,
         borderWidth: 1,
-        borderColor: "#999",
-        borderRadius: 8,
+        borderColor: "#A7D2F2",
+        borderRadius: 20,
         paddingHorizontal: 10,
         paddingTop: 0,
         marginBottom: 20,
         backgroundColor: "#fff",
     },
     boton: {
-        backgroundColor: "#F8C7C7",
-        borderRadius: 10,
+        backgroundColor: "#A7D2F2",
+        borderRadius: 20,
         alignItems: "center",
-        paddingHorizontal: 30,
+        paddingHorizontal: 10,
         paddingVertical: 10,
         borderColor: "black",
         borderWidth: 1,
         borderStyle: "solid",
+        width:"85%" ,
+         alignSelf: "center",
+        textAlign: "center",
     },
     texto: {
         fontSize: 16,
         color: "#000",
+    }, 
+    subtitulo: {
+         fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 14,
+    color: "#A7D2F2",
     }
-
 });
 
 export default Comentar;

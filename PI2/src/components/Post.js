@@ -62,6 +62,7 @@ class Post extends Component {
         <Text style={styles.email}>{this.props.email}</Text>
         <Text style={styles.mensaje}>{this.props.mensaje}</Text>
         <Text> numero de likes: {this.props.likes.length > 0 ? this.props.likes.length : 0}</Text>
+       
         <View style={styles.elementos}>
 
           <Pressable onPress={() => this.likearPost()}>
