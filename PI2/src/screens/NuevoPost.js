@@ -24,7 +24,7 @@ class NuevoPost extends Component {
     })
       .then((response) => {
         console.log(response);
-        this.props.navigation.navigate('Home')
+        this.props.navigation.navigate('NavegacionComentar', {screen: "Home"})
 
       })
       .catch(error => console.log(error));
