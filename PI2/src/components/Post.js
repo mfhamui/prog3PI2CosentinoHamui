@@ -65,7 +65,7 @@ class Post extends Component {
           <Pressable onPress={() => this.likearPost()}>
             <Text style={styles.gustar}> {this.state.texto ? "Dar me gusta" : "Eliminar me gusta"}</Text>
           </Pressable>
-          <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar')}>
+          <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar', { comentarios: this.props.comentarios, likes: this.props.likes,})}>
             <Text > Comentar </Text>
           </Pressable>
 

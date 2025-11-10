@@ -46,6 +46,7 @@ class Home extends Component {
               createdAt={item.data.createdAt}
               navigation={this.props.navigation}
               likes={item.data.likes ? item.data.likes : []}
+              comentarios={item.data.comentarios ? item.data.comentarios : []}
             />)}
         />
 
