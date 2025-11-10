@@ -69,8 +69,8 @@ class Profile extends Component {
           keyExtractor={item => item.id.toString()}
           renderItem={({ item }) =>
             <View style={styles.post}>
-              <Text  style= {styles.mensaje} >{item.data.mensaje}</Text>
-              
+              <Text style={styles.mensaje} >{item.data.mensaje}</Text>
+
             </View>
           }
 
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     color: "#F8C7C7",
   },
   post: {
-     marginVertical: 8,
+    marginVertical: 8,
     paddingVertical: 10,
     paddingHorizontal: 14,
     borderWidth: 1,
@@ -139,9 +139,9 @@ const styles = StyleSheet.create({
   mensaje: {
     fontSize: 16,
     marginBottom: 7,
-     marginVertical: 6,
+    marginVertical: 6,
     backgroundColor: "#fafafa",
-    padding:5,
+    padding: 5,
     borderRadius: 10
   },
 

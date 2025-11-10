@@ -21,22 +21,33 @@ class Login extends Component {
     }
     onSubmit(email, password) {
         console.log(this.state);
-        if (!this.state.email.includes("@")) {
-            this.setState({ error: "Email mal formateado" })
-            return
-        }
-        if (this.state.password.length < 6) {
-            this.setState({ error: "La password debe tener una longitud mínima de 6 caracteres" })
-            return
-        }
+
+
         auth.signInWithEmailAndPassword(email, password)
             .then((response) => {
                 console.log(response);
                 this.props.navigation.navigate('Menu')
             })
             .catch(error => {
-                this.setState({ error: "Credenciales incorrectas" });
+                console.log(error.message);
 
+                if (error.message == "The password must be 6 characters long or more.") {
+                    this.setState({
+                        error: "La contraseña debe tener una longitud mínima de 6 digitos"
+                    })
+                }
+                if (error.message == "The email address is badly formatted.") {
+                    this.setState({
+                        error: "El email esta mal formateado"
+                    })
+
+                }
+                if (error.message.includes("INVALID_LOGIN_CREDENTIALS")) {
+                    this.setState({
+                        error: "Credenciales incorrectas"
+                    })
+
+                }
             })
 
 

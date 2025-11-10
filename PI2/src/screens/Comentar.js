@@ -14,7 +14,7 @@ class Comentar extends Component {
 
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
             comentarios: this.props.route.params.comentarios
         })
@@ -24,15 +24,15 @@ class Comentar extends Component {
         db.collection("posts")
             .doc(this.props.route.params.id)
             .update({
-                comentarios: firebase.firestore.FieldValue.arrayUnion({comentario: this.state.comentario, email: auth.currentUser.email})
+                comentarios: firebase.firestore.FieldValue.arrayUnion({ comentario: this.state.comentario, email: auth.currentUser.email })
             })
             .then(() =>
                 // this.props.navigation.navigate('Login')
-                this.setState ({
-                    comentarios: this.state.comentarios.concat({comentario: this.state.comentario, email: auth.currentUser.email}),
+                this.setState({
+                    comentarios: this.state.comentarios.concat({ comentario: this.state.comentario, email: auth.currentUser.email }),
                     comentario: ""
                 })
-        )
+            )
             .catch((e) => console.log(e));
 
 
@@ -40,39 +40,39 @@ class Comentar extends Component {
     }
     render() {
         console.log(this.props);
-        
+
         return (
             <View style={styles.container}>
 
-            <View style={styles.perfil}>
-                <Text style={styles.email}>{this.props.route.params.email}</Text>
-                <Text style={styles.mensaje}>{this.props.route.params.mensaje}</Text>
-                <Text> numero de likes: {this.props.route.params.likes.length > 0 ? this.props.route.params.likes.length : 0}</Text>
+                <View style={styles.perfil}>
+                    <Text style={styles.email}>{this.props.route.params.email}</Text>
+                    <Text style={styles.mensaje}>{this.props.route.params.mensaje}</Text>
+                    <Text> numero de likes: {this.props.route.params.likes.length > 0 ? this.props.route.params.likes.length : 0}</Text>
 
-            </View>
+                </View>
 
-            <View style={styles.box}>
-                <TextInput style={styles.input}
-                    keyboardType='default'
-                    placeholder='Comenta aquí el post...'
-                    onChangeText={text => this.setState({ comentario: text })}
-                    value={this.state.comentario} />
+                <View style={styles.box}>
+                    <TextInput style={styles.input}
+                        keyboardType='default'
+                        placeholder='Comenta aquí el post...'
+                        onChangeText={text => this.setState({ comentario: text })}
+                        value={this.state.comentario} />
 
-                <Pressable style={styles.boton} onPress={() => this.onSubmit()}>
-                    <Text style={styles.texto}> Publicar comentario </Text>
-                </Pressable>
-            </View>
-            <Text style={styles.subtitulo}>Otros comentarios:</Text>
-                <FlatList 
-                data={this.state.comentarios}
-                keyExtractor={item => item.comentario}
-                renderItem={({item}) => 
-                 <View style={styles.comentar}>
-                    <Text style={styles.usuario}> {item.email} </Text>
-                    <Text style={styles.mensaje}> {item.comentario} </Text>
+                    <Pressable style={styles.boton} onPress={() => this.onSubmit()}>
+                        <Text style={styles.texto}> Publicar comentario </Text>
+                    </Pressable>
+                </View>
+                <Text style={styles.subtitulo}>Otros comentarios:</Text>
+                <FlatList
+                    data={this.state.comentarios}
+                    keyExtractor={item => item.comentario}
+                    renderItem={({ item }) =>
+                        <View style={styles.comentar}>
+                            <Text style={styles.usuario}> {item.email} </Text>
+                            <Text style={styles.mensaje}> {item.comentario} </Text>
 
-                 </View>
-                }
+                        </View>
+                    }
                 />
 
             </View>
@@ -87,36 +87,38 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     container: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 30,
-    backgroundColor: "#ffffff",
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingTop: 30,
+        backgroundColor: "#ffffff",
     },
     perfil: {
-         marginVertical: 8,
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    borderWidth: 2,
-    borderColor: "#A7D2F2",
-    borderRadius: 20,
-    backgroundColor: "#ffffff"
+        marginVertical: 8,
+        paddingVertical: 10,
+        paddingHorizontal: 14,
+        borderWidth: 2,
+        borderColor: "#A7D2F2",
+        borderRadius: 20,
+        backgroundColor: "#ffffff"
     },
 
-    comentar:{ marginVertical: 8,
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    borderWidth: 1,
-    borderColor: "#A7D2F2",
-    borderRadius: 20,
-    backgroundColor: "#ffffff"},
-    box:{  marginVertical: 30,},
-   
-  
+    comentar: {
+        marginVertical: 8,
+        paddingVertical: 10,
+        paddingHorizontal: 14,
+        borderWidth: 1,
+        borderColor: "#A7D2F2",
+        borderRadius: 20,
+        backgroundColor: "#ffffff"
+    },
+    box: { marginVertical: 30, },
+
+
     usuario: {
         fontSize: 16,
-        fontWeight:"bold",
-    
-  
+        fontWeight: "bold",
+
+
     },
     email: {
         fontWeight: "bold",
@@ -156,19 +158,19 @@ const styles = StyleSheet.create({
         borderColor: "black",
         borderWidth: 1,
         borderStyle: "solid",
-        width:"85%" ,
-         alignSelf: "center",
+        width: "85%",
+        alignSelf: "center",
         textAlign: "center",
     },
     texto: {
         fontSize: 16,
         color: "#000",
-    }, 
+    },
     subtitulo: {
-         fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 14,
-    color: "#A7D2F2",
+        fontSize: 18,
+        fontWeight: "bold",
+        marginBottom: 14,
+        color: "#A7D2F2",
     }
 });
 

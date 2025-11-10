@@ -16,14 +16,14 @@ class Post extends Component {
   }
 
   componentDidMount() {
-  if (this.props.likes.includes(auth.currentUser.email)) {
-    this.setState({ texto: false });
-  } else {
-    this.setState({ texto: true });
-  }
+    if (this.props.likes.includes(auth.currentUser.email)) {
+      this.setState({ texto: false });
+    } else {
+      this.setState({ texto: true });
+    }
 
-  
-}
+
+  }
 
 
   likearPost() {
@@ -62,13 +62,13 @@ class Post extends Component {
         <Text style={styles.email}>{this.props.email}</Text>
         <Text style={styles.mensaje}>{this.props.mensaje}</Text>
         <Text> numero de likes: {this.props.likes.length > 0 ? this.props.likes.length : 0}</Text>
-       
+
         <View style={styles.elementos}>
 
           <Pressable onPress={() => this.likearPost()}>
             <Text style={styles.gustar}> {this.state.texto ? "Dar me gusta" : "Eliminar me gusta"}</Text>
           </Pressable>
-          <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar', { comentarios: this.props.comentarios, likes: this.props.likes, email:this.props.email, mensaje: this.props.mensaje, id: this.props.id})}>
+          <Pressable style={styles.comentario} onPress={() => this.props.navigation.navigate('Comentar', { comentarios: this.props.comentarios, likes: this.props.likes, email: this.props.email, mensaje: this.props.mensaje, id: this.props.id })}>
             <Text > Comentar </Text>
           </Pressable>
 
@@ -100,12 +100,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10
   },
-   mensaje: {
+  mensaje: {
     fontSize: 16,
     marginBottom: 7,
     marginVertical: 6,
     backgroundColor: "#fafafa",
-    padding:5,
+    padding: 5,
     borderRadius: 10
   },
   elementos: {

@@ -18,11 +18,11 @@ class Register extends Component {
 
   onSubmit(email, password, usuario) {
     console.log(this.state);
- 
-  if (this.state.userName.length < 1) {
-            this.setState({ error: "introducir un nombre de usuario es OBLIGATORIO" })
-            return
-        }
+
+    if (this.state.userName.length < 1) {
+      this.setState({ error: "introducir un nombre de usuario es OBLIGATORIO" })
+      return
+    }
 
     auth.createUserWithEmailAndPassword(email, password)
 
@@ -46,19 +46,19 @@ class Register extends Component {
           this.setState({
             error: "el email esta mal formateado"
           })
-        
+
         }
-          if (error.message == "The email address is already in use by another account.") {
+        if (error.message == "The email address is already in use by another account.") {
           this.setState({
             error: "el email ya esta en uso"
           })
-          }
+        }
 
-      if (error.message == "The password must be 6 characters long or more.") {
+        if (error.message == "The password must be 6 characters long or more.") {
           this.setState({
             error: "la contraseña debe tener una longitud minima de 6 digitos"
           })
-          }
+        }
         console.log(error);
 
       })
